@@ -23,7 +23,7 @@ def main():
     running = True
     while running:
         running = handle_events()
-        screen.fill(config.WHITE)
+        screen.fill(config.COLOR_WHITE)
         pygame.display.flip()
 
         clock.tick(config.FPS)
