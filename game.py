@@ -16,11 +16,16 @@ def handle_events():
             if event.key == pygame.K_ESCAPE:
                 return False
     return True
-# Write function above your main( ) function
-def draw_line(screen, color, start_pos, end_pos, thickness):
-    """Draws a line on the screen with the specified color and thickness."""
 
+def draw_line(screen, color, start_pos, end_pos, thickness):
     pygame.draw.line(screen, color, start_pos, end_pos, thickness)
+
+def draw_rect(screen, rect, color, thickness):
+            pygame.draw.rect(screen, color, rect, thickness)
+
+def draw_circle(screen, center, radius, color, thickness):
+    pygame.draw.circle(screen, color, center, radius, thickness)
+
 
 topgrid_pos = {'start1': (1, 0), 'start2': (100, 0), 'start3': (200, 0), 'start4': (300, 0), 'start5': (400, 0), 'start6': (500, 0), 'start7': (600, 0), 'start8': (700, 0), 'start9': (799, 0), 'end1': (1, 20), 'end2': (100, 20), 'end3': (200, 20), 'end4': (300, 20), 'end5': (400, 20), 'end6': (500, 20), 'end7': (600, 20), 'end8': (700, 20), 'end9': (799, 20)}
 sidegrid_pos = {'start1': (0, 1), 'start2': (0, 100), 'start3': (0, 200), 'start4': (0, 300), 'start5': (0, 400), 'start6': (0, 500), 'start7': (0, 599), 'end1': (20, 1), 'end2': (20, 100), 'end3': (20, 200), 'end4': (20, 300), 'end5': (20, 400), 'end6': (20, 500), 'end7': (20, 599)}
