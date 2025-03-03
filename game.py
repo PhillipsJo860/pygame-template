@@ -17,23 +17,34 @@ def handle_events():
                 return False
     return True
 
+# text_font = pygame.font.Font(None, 30)
+
 def draw_line(screen, color, start_pos, end_pos, thickness):
     pygame.draw.line(screen, color, start_pos, end_pos, thickness)
 
 def draw_rect(screen, rect, color, thickness):
-            pygame.draw.rect(screen, color, rect, thickness)
+    pygame.draw.rect(screen, color, rect, thickness)
 
 def draw_circle(screen, center, radius, color, thickness):
     pygame.draw.circle(screen, color, center, radius, thickness)
+
+def draw_text(screen, text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y))
+
 
 
 def main():
     screen = init_game()
     clock = pygame.time.Clock()
     running = True
+
+    text_font = pygame.font.SysFont('Arial', 30)
     while running:
         running = handle_events()
         screen.fill(config.COLOR_WHITE)
+
+        draw_text(screen, 'Hello world', text_font, config.COLOR_BLACK, 220, 150)
 
         # Calling a grid (Comment this out after you are done coding)
         grid(screen)
