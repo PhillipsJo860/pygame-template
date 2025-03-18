@@ -45,6 +45,16 @@ def main():
         screen.fill(config.COLOR_WHITE)
 
         draw_text(screen, 'Hello world', text_font, config.COLOR_BLACK, 220, 150)
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w]:
+            item_position[1] -= 4
+        if keys[pygame.K_s]:
+            item_position[1] += 4
+        if keys[pygame.K_a]:
+            item_position[0] -= 4
+        if keys[pygame.K_d]:
+            item_position[0] += 4
 
         # Calling a grid (Comment this out after you are done coding)
         grid(screen)
