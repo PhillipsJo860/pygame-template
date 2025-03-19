@@ -41,29 +41,31 @@ def draw_text(screen, text, font_size, text_col, text_pos, font_name=None, bold=
     screen.blit(img, text_pos)
 
 
-
 def main():
     screen = init_game()
     clock = pygame.time.Clock()
     running = True
 
-    font_name = pygame.font.SysFont('Arial')
-    font_size = [30]
+    # font_name = pygame.font.Font('Arial', 30)
+    text_position = [150, 100]
+    text = 'hi'
+    
     while running:
         running = handle_events()
         screen.fill(config.COLOR_WHITE)
 
-        draw_text(screen, 'Hello world', font_size, config.COLOR_BLACK, text_position, font_name)
-        keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_w]:
-            item_position[1] -= 4
-        if keys[pygame.K_s]:
-            item_position[1] += 4
-        if keys[pygame.K_a]:
-            item_position[0] -= 4
-        if keys[pygame.K_d]:
-            item_position[0] += 4
+        draw_text(screen, text, 30, config.COLOR_BLACK, text_position)
+        
+        # keys = pygame.key.get_pressed()
+        # if keys[pygame.K_w]:
+        #     item_position[1] -= 4
+        # if keys[pygame.K_s]:
+        #     item_position[1] += 4
+        # if keys[pygame.K_a]:
+        #     item_position[0] -= 4
+        # if keys[pygame.K_d]:
+        #     item_position[0] += 4
 
         # Calling a grid (Comment this out after you are done coding)
         grid(screen)
