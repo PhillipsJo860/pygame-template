@@ -9,14 +9,29 @@ def init_game():
     pygame.display.set_caption(config.TITLE)
     return screen
 
-def handle_events():
+def handle_events(item_position):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            return False
+            return item_position, False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False
-    return True
+        
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        item_position[1] -= 4
+    if keys[pygame.K_s]:
+        item_position[1] += 4
+    if keys[pygame.K_a]:
+        item_position[0] -= 4
+    if keys[pygame.K_d]:
+        item_position[0] += 4
+        
+    return item_position, True
+
+        
+    # return True
+        
 
 # text_font = pygame.font.Font(None, 30)
 
@@ -51,22 +66,12 @@ def main():
     text = 'hi'
     
     while running:
-        running = handle_events()
+        running = handle_events(text_position)
         screen.fill(config.COLOR_WHITE)
 
 
         draw_text(screen, text, 30, config.COLOR_BLACK, text_position)
         
-        # keys = pygame.key.get_pressed()
-        # if keys[pygame.K_w]:
-        #     item_position[1] -= 4
-        # if keys[pygame.K_s]:
-        #     item_position[1] += 4
-        # if keys[pygame.K_a]:
-        #     item_position[0] -= 4
-        # if keys[pygame.K_d]:
-        #     item_position[0] += 4
-
         # Calling a grid (Comment this out after you are done coding)
         grid(screen)
         
