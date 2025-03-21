@@ -64,12 +64,15 @@ def main():
     # font_name = pygame.font.Font('Arial', 30)
     text_position = [150, 100]
     text = 'hi'
-    
+    # click_sound = pygame.mixer.Sound('the sound')
+
     while running:
         running = handle_events(text_position)
         screen.fill(config.COLOR_WHITE)
 
-
+        # Necessary for playing sounds
+        # click_sound.play()
+            
         draw_text(screen, text, 30, config.COLOR_BLACK, text_position)
         
         # Calling a grid (Comment this out after you are done coding)
