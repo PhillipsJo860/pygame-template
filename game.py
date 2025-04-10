@@ -12,7 +12,7 @@ def init_game():
 def handle_events(item_position):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            return item_position, False
+            return False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False
